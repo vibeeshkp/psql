@@ -1,0 +1,23 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+   name: test-cluster
+spec:
+  teamId: "test"
+  volume:
+    size: 2Gi
+  numberOfInstances: 2
+  users:
+    test: 
+    - superuser
+    - createdb
+    appuser:
+    - login
+  databases:
+    rigiddb: test 
+    rigiddb1: test
+  postgresql:
+      version: "12"
+  allowedSourceRanges:
+  - 0.0.0.0/0
+

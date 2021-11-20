@@ -1,0 +1,17 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+   name: rigid-cluster
+spec:
+  teamId: "rigid"
+  volume:
+    size: 2Gi
+  numberOfInstances: 2
+  users:
+    rigid: 
+    - superuser
+    - createdb
+  databases:
+    rigid_db: rigid  # dbname: owner
+  postgresql:
+      version: "12"
